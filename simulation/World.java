@@ -55,6 +55,10 @@ public class World {
                 }
                 this.gui.display("gen_" + this.generation + "_step_" + s);
             }
+
+            // Take a snapshot of the ending of current generation
+            this.gui.saveImage(this.gui.frame, this.gui.dim * this.gui.factor, this.gui.dim * this.gui.factor, "gen_" + this.generation);
+
             this.generation += 1;
             this.agents = this.criteria.select(this.agents, this.map);
             killsPerGeneration[g] = this.criteria.kills;

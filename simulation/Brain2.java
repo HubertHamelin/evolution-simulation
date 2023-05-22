@@ -1,9 +1,10 @@
 import Sensors.Sensor;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Brain2 implements Serializable {
+
+    // ERROR: it appears that only one neuron per hidden layer is active in converging simulations
 
     ArrayList<Neuron2>[] layers;
     int nbHiddenLayers;
@@ -151,7 +152,7 @@ public class Brain2 implements Serializable {
             Neuron2 destination;
             if (destinationType == 0) {
                 int layerIndex = destinationID / this.nbNeuronsPerLayer;
-                int internalIndex = destinationID / this.nbHiddenLayers;
+                int internalIndex = destinationID % this.nbNeuronsPerLayer;
                 destination = this.layers[layerIndex + 1].get(internalIndex);
             } else {
                 destination = this.layers[this.nbHiddenLayers + 1].get(destinationID);
@@ -200,14 +201,6 @@ public class Brain2 implements Serializable {
                         }
                     }
                 }
-                /*
-                int offset = 0;
-                for (int index : indexToDrop) {
-                    neuron.inputs.remove(index - offset);
-                    neuron.weights.remove(index - offset);
-                    offset += 1;
-                }
-                */
                 for (Neuron2 input : inputsToDrop)
                     neuron.inputs.remove(input);
                 for (Double weight : weightsToDrop)

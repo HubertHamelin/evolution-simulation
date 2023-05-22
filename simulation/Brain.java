@@ -1,11 +1,11 @@
 import Sensors.Sensor;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
 
 public class Brain {
+
 
     // TODO : handling computations using Matrices will be faster.
     // TODO: nbConnections inherited from the agent's genome. At first we will use a simple default brain.
@@ -26,7 +26,6 @@ public class Brain {
         this.simplifyNetwork();
         this.layers = new ArrayList<>();
         this.organizeLayers();
-        // this.exportBrain();
     }
 
     public Action think(Sensor[] sensors) {

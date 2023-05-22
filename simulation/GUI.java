@@ -38,7 +38,7 @@ public class GUI {
         pane.add(agentsPanel);
     }
 
-    private void saveImage(JFrame frame, int width, int height, String filename) {
+    public void saveImage(JFrame frame, int width, int height, String filename) {
         try
         {
             BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);

@@ -3,12 +3,13 @@ import java.util.ArrayList;
 public class Selection {
 
     // "Those who reproduces do, those who doesn't, doesn't"
-    //TODO : visualize Selection criteria on the world map GUI
+    // TODO : visualize Selection criteria on the world map GUI
+    // TODO : the selection criteria should be chosen from the main script with an argument
     int kills = 0;
 
     public ArrayList<Agent> select(ArrayList<Agent> agents, int[][] map) {
         int initialPopulation = agents.size();
-        ArrayList<Agent> agentsAlive = this.killOutsideMapCenter(agents, map);
+        ArrayList<Agent> agentsAlive = this.killOutsideMapCorners(agents, map);
         this.kills = initialPopulation - agentsAlive.size();
         System.out.println("Killed " + this.kills + " agents");
         return agentsAlive;
