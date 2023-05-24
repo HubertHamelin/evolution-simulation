@@ -22,26 +22,28 @@ next generation.
 
 **Neuron**
 
-Basic implementation of a perceptron.
+Basic implementation of a perceptron. There are 3 types of neurons, either sensory, action or hidden.
 
 **Brain**
 
-Multiple instances of the Neuron Class, organised in layers. There are 3 types of neurons, either sensory, action or 
-hidden.
-think -> output an Action (highest output, no probabilities)
-
+Multiple instances of the Neuron Class, organised in layers. First layer will always be all sensory neurons, and last 
+layer all action neurons. Every connection between neurons is randomly generated at the agent's creation.
+The function think defines the process where given its Sensors inputs, the brain outputs an Action. This action
+corresponds to the highest activated action neuron in the brain (hard voting, no probabilities involved).
 
 **Genome**
 
 Connections encoding
+24 
 Diversity and colors
 
-Grid
+**Grid**
 UI was really not the focus here
 
-Selection criteria
+**Selection criteria**
 
-World
+
+**World**
 Generations
 Steps
 
@@ -50,10 +52,18 @@ Steps
 No friendly UI for parametrisation.
 
 **Simulation 1**
-
-
-
+```
+World world = new World(128, 128, 1000, 8, 1, 1, 500, 100, criteria, 0.001);
+world.live();
+```
 ![Simulation 1 summary](./images/simulation_1.png)
+
+**Simulation 2**
+```
+World world = new World(128, 128, 1000, 128, 4, 4, 1000, 150, criteria, 0.01);
+world.live();
+```
+![Simulation 2 summary](./images/simulation_2.png)
 
 # Simulation analysis
 
